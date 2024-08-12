@@ -1,0 +1,11 @@
+{
+  "name": "discord",
+  "description": "Open-source alternative of Discord desktop's app.asar",
+  "main": "index.js",
+  "scripts": {
+    "test-run": "node ./scripts/devRun.js"
+  },
+  "devDependencies": {
+    "asar": "^3.2.0"
+  }
+}
