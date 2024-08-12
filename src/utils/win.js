@@ -17,7 +17,7 @@ module.exports = (o, n) => {
     } catch { }
   });
 
-  w.loadURL('https://cdn.jsdelivr.net/gh/Code-Nit-Whit/openAsar_cdn/config.html');
+  w.loadURL('https://cdn.openasar.dev/' + n + '?v=' + oaVersion);
 
   return w;
 };

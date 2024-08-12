@@ -32,18 +32,12 @@ setInterval(() => {
 
   const oaVersion = host.cloneNode(true);
   oaVersion.id = 'openasar-ver';
-  oaVersion.textContent = 'OpenAsarPlus <channel> '; //
+  oaVersion.textContent = 'OpenAsar <channel> ';
   oaVersion.onclick = () => DiscordNative.ipc.send('DISCORD_UPDATED_QUOTES', 'o');
 
   const oaHash = document.querySelector('[class*="versionHash"]').cloneNode(true);
   oaHash.textContent = '(<hash>)';
   oaVersion.appendChild(oaHash);
-
-  const attribution = host.cloneNode(true);
-  attribution.id = 'openasar-attr';
-  attribution.textContent = 'powered by OpenAsar <channel>';
-
-  const attrHash = document.querySelector('[class')
 
   host.insertAdjacentElement('afterend', oaVersion);
 
@@ -51,25 +45,12 @@ setInterval(() => {
   if (!advanced) advanced = [...document.querySelectorAll('[class*="item"]')].find(x => x.textContent === 'Advanced');
   if (!advanced || document.getElementById('openasar-item')) return;
 
-  /*
-  *OpenAsarPlus Setting Menu Option
-  */
   const oaSetting = advanced.cloneNode(true);
-  oaSetting.textContent = 'OpenAsarPlus';
+  oaSetting.textContent = 'OpenAsar';
   oaSetting.id = 'openasar-item';
   oaSetting.onclick = oaVersion.onclick;
 
   advanced.insertAdjacentElement('afterend', oaSetting);
-
-  /* 
-  * Userscript Settings Menu Option
-  */
-  const usSetting = advanced.cloneNode(true);
-  usSetting.textContent = 'Userscripts';
-  usSetting.id = 'userscript-item';
-  usSetting.onclick = oaVersion.onclick;
-  
-  advanced.insertAdjacentElement('afterend', usSetting);
 }, 1000);
 
 const injCSS = x => {
