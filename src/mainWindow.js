@@ -30,25 +30,25 @@ setInterval(() => {
   const host = [...document.querySelectorAll('[class*="sidebar"] [class*="info"] [class*="line"]')].find(x => x.textContent.startsWith('Host '));
   if (!host || document.getElementById('openasar-ver')) return;
 
-  const oaVersion = host.cloneNode(true);
-  oaVersion.id = 'openasar-ver';
-  oaVersion.textContent = 'OpenAsar <channel> ';
-  oaVersion.onclick = () => DiscordNative.ipc.send('DISCORD_UPDATED_QUOTES', 'o');
+  const oaPlusVersion = host.cloneNode(true);
+  oaPlusVersion.id = 'openasar-ver';
+  oaPlusVersion.textContent = 'OpenAsarPlus <channel> ';
+  oaPlusVersion.onclick = () => DiscordNative.ipc.send('DISCORD_UPDATED_QUOTES', 'o');
 
-  const oaHash = document.querySelector('[class*="versionHash"]').cloneNode(true);
-  oaHash.textContent = '(<hash>)';
-  oaVersion.appendChild(oaHash);
+  const oaPlusHash = document.querySelector('[class*="versionHash"]').cloneNode(true);
+  oaPlusHash.textContent = '(<hash>)';
+  oaPlusVersion.appendChild(oaPlusHash);
 
-  host.insertAdjacentElement('afterend', oaVersion);
+  host.insertAdjacentElement('afterend', oaPlusVersion);
 
   let advanced = document.querySelector('[class*="socialLinks"]').parentElement.querySelector('[class*="premiumTab"] ~ [class*="header"] + [class*="item"] + [class*="item"] + [class*="item"] + [class*="item"] + [class*="item"] + [class*="item"] + [class*="item"] + [class*="item"] + [class*="item"] ~ [class*="separator"]')?.previousSibling;
   if (!advanced) advanced = [...document.querySelectorAll('[class*="item"]')].find(x => x.textContent === 'Advanced');
   if (!advanced || document.getElementById('openasar-item')) return;
 
   const oaSetting = advanced.cloneNode(true);
-  oaSetting.textContent = 'OpenAsar';
+  oaSetting.textContent = 'OpenAsarPlus';
   oaSetting.id = 'openasar-item';
-  oaSetting.onclick = oaVersion.onclick;
+  oaSetting.onclick = oaPlusVersion.onclick;
 
   advanced.insertAdjacentElement('afterend', oaSetting);
 }, 1000);
